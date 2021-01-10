@@ -1,4 +1,13 @@
 def extract_all_links(web_page_url):
+    """
+    Author: Mohamed El-Hasnaouy
+    CopyLefts: GNU
+    :param web_page_url: the link of the target page
+    :return: list of string
+    """
+    import requests
+    from bs4 import BeautifulSoup
+    
     r = requests.get(web_page_url)
     soup = BeautifulSoup(r.content, 'lxml')
     all_a = soup.html.find_all('a')
